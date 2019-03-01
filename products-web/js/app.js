@@ -4,10 +4,10 @@ $(document).ready(function () {
 	  <h1>Productos</h1>
 	</div>
         <div class='container'>
-            <!-- this is where the contents will be shown. -->
+            <!-- Aquí es donde el contenido se va a mostrar. -->
             <div id='page-content'></div> 
         </div>`;
 
-    // inject to 'app' in index.html
+    // Inyecta en 'app' en index.html
     $("#app").html(appHtml);
 });
