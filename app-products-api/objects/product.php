@@ -16,9 +16,19 @@ class Product {
 
     public function read() {
         $query = "select * from " . $this->tableName;
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt;
+        $statement = $this->conn->prepare($query);
+        $statement->execute();
+        return $statement;
+    }
+
+    public function delete() {
+        $query = "delete from " . $this->tableName . " where id_product = ?";
+        $statement = $this->conn->prepare($query);
+        $statement->bindParam(1, $this->id_product);
+        if($statement->execute()) {
+            return true;
+        }
+        return false;
     }
 }
 ?>

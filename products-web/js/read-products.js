@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // Muestra la lista de productos.
     var apiURL = "http://[domain-here]/apps/app-products-api/";
-    $.getJSON(apiURL + "product/read.php?callback=1", function (data) {
+    $.getJSON(apiURL + "product/read.php", function (data) {
         var read_products_html = `
             <!-- Comienza la tabla. -->
             <table class='table table-bordered table-hover'>
