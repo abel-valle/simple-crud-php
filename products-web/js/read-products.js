@@ -1,6 +1,10 @@
 $(document).ready(function () {
+    showProducts();
+});
+
+function showProducts() {
     // Muestra la lista de productos.
-    var apiURL = "http://[domain-here]/apps/app-products-api/";
+    var apiURL = "http://abelworld.byethost4.com/apps-full/app-products-api/";
     $.getJSON(apiURL + "product/read.php", function (data) {
         var read_products_html = `
             <!-- Comienza la tabla. -->
@@ -14,10 +18,11 @@ $(document).ready(function () {
 		        <th scope="col">Descripción</th>
 		        <th scope="col">Marca</th>
 		        <th scope="col">Precio</th>
-		        <th scope="col">Foto</th>
+                <th scope="col">Foto</th>
+                <th scope="col">Acción</th>
 		    </tr>
 	    </thead>`;
-        
+
         $.each(data.records, function (key, val) {
             // Crea cada renglón de la tabla.
             read_products_html += `
@@ -28,6 +33,12 @@ $(document).ready(function () {
                     <td>` + val.brand + `</td>
                     <td>` + val.price + `</td>
                     <td> <img src='` + apiURL + val.image + `' height='80px'> </td>
+                    <td>
+                        <!-- Botón para eliminar -->
+                        <button class='btn btn-danger delete-product-button' data-id='` + val.id_product + `'>
+                            <span class='glyphicon glyphicon-remove'></span> Eliminar
+                        </button>
+                    </td>
                 </tr>`;
         });
         // Termina la tabla.
@@ -35,4 +46,4 @@ $(document).ready(function () {
         // Inyecta en 'page-content' de la aplicación.
         $("#page-content").html(read_products_html);
     });
-});
+}
