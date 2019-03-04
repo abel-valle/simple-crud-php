@@ -1,9 +1,9 @@
 <?php
 class Database {
-    private $host   = "sql202.byethost.com";
-    private $db     = "b4_22610925_dci3db";
-    private $user   = "b4_22610925";
-    private $pass   = "abel12345";
+    private $host   = "[database-host-here]";
+    private $db     = "[database-name-here]";
+    private $user   = "[user-here]";
+    private $pass   = "[pass-here]";
 
     public $conn;
 

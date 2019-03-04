@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 function showProducts() {
     // Muestra la lista de productos.
-    var apiURL = "http://abelworld.byethost4.com/apps-full/app-products-api/";
+    var apiURL = "http://[your-domain-here]/apps/app-products-api/";
     $.getJSON(apiURL + "product/read.php", function (data) {
         var read_products_html = `
             <!-- Comienza la tabla. -->

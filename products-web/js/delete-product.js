@@ -20,7 +20,7 @@ $(document).ready(function () {
                 if (result == true) {
                     // Envía la petición de eliminar a la api / servidor remoto.
                     $.ajax({
-                        url: "http://abelworld.byethost4.com/apps-full/app-products-api/product/delete.php",
+                        url: "http://[your-domain-here]/apps/app-products-api/product/delete.php",
                         type: "POST",
                         dataType: 'json',
                         data: JSON.stringify({ id_product: id_product }),
