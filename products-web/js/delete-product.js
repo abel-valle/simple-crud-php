@@ -5,7 +5,7 @@ $(document).ready(function () {
         var id_product = $(this).attr('data-id');
         // bootbox para pop up de confirmación. 
         bootbox.confirm({
-            message: "<h4>Estás seguro?</h4>",
+            message: "<h4>¿Estás seguro de eliminar el producto?</h4>",
             buttons: {
                 confirm: {
                     label: '<span class="glyphicon glyphicon-ok"></span> Si',

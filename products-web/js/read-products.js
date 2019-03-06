@@ -7,21 +7,27 @@ function showProducts() {
     var apiURL = "http://[your-domain-here]/apps/app-products-api/";
     $.getJSON(apiURL + "product/read.php", function (data) {
         var read_products_html = `
+            <!-- Al hacer clic, cargará el formulario para crear un nuevo producto. -->
+            <div id='create-product' class='btn btn-primary pull-right m-b-15px create-product-button'>
+                <span class='glyphicon glyphicon-plus'></span> Crear Producto
+            </div>
+            <br>
+
             <!-- Comienza la tabla. -->
             <table class='table table-bordered table-hover'>
         
             <!-- Encabezado de tabla. -->
-	    <thead class="thead-dark">
-		    <tr>
-		        <th scope="col">ID</th>
-		        <th scope="col">Producto</th>
-		        <th scope="col">Descripción</th>
-		        <th scope="col">Marca</th>
-		        <th scope="col">Precio</th>
-                <th scope="col">Foto</th>
-                <th scope="col">Acción</th>
-		    </tr>
-	    </thead>`;
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>`;
 
         $.each(data.records, function (key, val) {
             // Crea cada renglón de la tabla.
@@ -47,3 +53,8 @@ function showProducts() {
         $("#page-content").html(read_products_html);
     });
 }
+
+// Al hacer clic en el botón de 'mostrar productos'.
+$(document).on('click', '.read-products-button', function(){
+    showProducts();
+});
