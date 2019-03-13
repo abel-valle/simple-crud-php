@@ -35,8 +35,8 @@ class Product {
 
     public function create() {
         // query para insertar el registro
-        $query = "insert into " . $this->tableName . " (name,description,brand,price,image) "
-        + "values (:name, :description, :brand, :price, :image)";
+        $query = "insert into " . $this->tableName . " (name, description, brand, price, image) "
+            . "values (:name, :description, :brand, :price, :image)";
 
         // se prepara el query
         $statement = $this->conn->prepare($query);

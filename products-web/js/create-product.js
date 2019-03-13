@@ -65,7 +65,7 @@ $(document).ready(function () {
 
         // Envía los datos del formulario a la API
         $.ajax({
-            url: "http://[your-domain-here]/apps/app-products-api/product/create.php",
+            url: "http://[your-domain-here]/apps/products-api/product/create.php",
             type: "POST",
             contentType: 'application/json',
             data: form_data,
