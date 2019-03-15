@@ -8,7 +8,7 @@ $(document).ready(function () {
         </div>
 
         <!-- Formulario html de 'crear producto' -->
-        <form id='create-product-form' action='#' method='post' border='0'>
+        <form id='create-product-form' action='#' method='post' border='0' enctype='multipart/form-data'>
             <table class='table table-hover table-responsive table-bordered'>
         
                 <!-- campo nombre -->
@@ -67,9 +67,11 @@ $(document).ready(function () {
         $.ajax({
             url: "http://[your-domain-here]/apps/products-api/product/create.php",
             type: "POST",
-            contentType: 'application/json',
+            dataType: "json",
+            contentType: "application/json",
             data: form_data,
             success: function (result) {
+                console.log(result);
                 // Si el producto ha sido creado, entonces muestra el listado de productos.
                 showProducts();
             },

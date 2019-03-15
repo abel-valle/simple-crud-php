@@ -16,15 +16,32 @@ $db = $database->getConnection();
 // Preparamos el objeto de producto.
 $product = new Product($db);
 
-// 
+// Se obtienen los datos desde enviados.
 $data = json_decode(file_get_contents("php://input"));
 
-// 
-if($product->create()) {
-    http_response_code(200);
-    echo json_encode(array("mensaje" => "El producto fue eliminado: " . $product->id_product));
+// Se verifica que los datos no esten vacíos
+if(
+    !empty($data->name) &&
+    !empty($data->description) &&
+    !empty($data->brand) &&
+    !empty($data->price)
+) {
+    // Coloca los valores de $data en $product.
+    $product->name = $data->name;
+    $product->description = $data->description;
+    $product->brand = $data->brand;
+    $product->price = $data->price;
+
+    // Se crea el producto.
+    if($product->create()) {
+        http_response_code(200);
+        echo json_encode(array("mensaje" => "El producto fue creado."));
+    } else {
+        http_response_code(503);
+        echo json_encode(array("mensaje" => "No fue posible borrar el producto."));
+    }
 } else {
-    http_response_code(503);
-    echo json_encode(array("mensaje" => "No fue posible borrar el producto."));
+    http_response_code(400); 
+    echo json_encode(array("message" => "Imposible crear el producto. Los datos están incompletos."));
 }
 ?>
