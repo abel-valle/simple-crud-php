@@ -50,11 +50,11 @@ class Product {
         $this->image = htmlspecialchars(strip_tags($this->image));
 
         // se sustituyen los valores
-        $statement->bindParam(":name", $this->name);
-        $statement->bindParam(":description", $this->description);
-        $statement->bindParam(":brand", $this->brand);
-        $statement->bindParam(":price", $this->price);
-        $statement->bindParam(":image", $this->imagesPath . $this->image);
+        $statement->bindValue(":name", $this->name);
+        $statement->bindValue(":description", $this->description);
+        $statement->bindValue(":brand", $this->brand);
+        $statement->bindValue(":price", $this->price);
+        $statement->bindValue(":image", $this->imagesPath . $this->image);
 
         // se ejecuta el query
         if($statement->execute()) {
