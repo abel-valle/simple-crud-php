@@ -42,6 +42,6 @@ if(
     }
 } else {
     http_response_code(400); 
-    echo json_encode(array("message" => "Imposible crear el producto. Los datos están incompletos."));
+    echo json_encode(array("mensaje" => "Imposible crear el producto. Los datos están incompletos."));
 }
 ?>

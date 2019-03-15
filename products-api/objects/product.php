@@ -2,6 +2,7 @@
 class Product {
     private $conn;
     private $tableName = "products";
+    private $imagesPath = "images/";
     
     public $id_product;
     public $name;
@@ -53,7 +54,8 @@ class Product {
         $statement->bindParam(":description", $this->description);
         $statement->bindParam(":brand", $this->brand);
         $statement->bindParam(":price", $this->price);
-        $statement->bindParam(":image", $this->image);
+        $statement->bindParam(":image", $this->imagesPath . $this->image);
+
         // se ejecuta el query
         if($statement->execute()) {
             return true;
