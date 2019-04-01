@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+    var apiURL = "http://[your-domain-here]/apps/products-api/";
+
     // Se ejecuta si se da clic en el botón de eliminar.
     $(document).on('click', '.delete-product-button', function () {
         // Se obtiene el ID de producto.
@@ -20,7 +23,7 @@ $(document).ready(function () {
                 if (result == true) {
                     // Envía la petición de eliminar a la api / servidor remoto.
                     $.ajax({
-                        url: "http://[your-domain-here]/apps/products-api/product/delete.php",
+                        url: apiURL + "product/delete.php",
                         type: "POST",
                         dataType: 'json',
                         data: JSON.stringify({ id_product: id_product }),

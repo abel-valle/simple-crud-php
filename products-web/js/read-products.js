@@ -5,13 +5,15 @@ $(document).ready(function () {
 function showProducts() {
     // Muestra la lista de productos.
     var apiURL = "http://[your-domain-here]/apps/products-api/";
+    
     $.getJSON(apiURL + "product/read.php", function (data) {
         var read_products_html = `
             <!-- Al hacer clic, cargará el formulario para crear un nuevo producto. -->
-            <div id='create-product' class='btn btn-primary pull-right m-b-15px create-product-button'>
-                <span class='glyphicon glyphicon-plus'></span> Crear Producto
+            <div class='text-right'>
+                <button class='btn btn-primary create-product-button'>
+                    <i class='fa fa-plus'></i> Crear Producto
+                </button>
             </div>
-            <br>
 
             <!-- Comienza la tabla. -->
             <table class='table table-bordered table-hover'>
@@ -40,9 +42,14 @@ function showProducts() {
                     <td>` + val.price + `</td>
                     <td> <img src='` + apiURL + val.image + `' height='80px'> </td>
                     <td>
+                        <!-- Botón para editar -->
+                        <button class='btn btn-info update-product-button' data-id='` + val.id_product + `'>
+                            <i class="fa fa-edit"></i> Editar
+                        </button>
+                        
                         <!-- Botón para eliminar -->
                         <button class='btn btn-danger delete-product-button' data-id='` + val.id_product + `'>
-                            <span class='glyphicon glyphicon-remove'></span> Eliminar
+                            <i class="fa fa-trash"></i> Eliminar
                         </button>
                     </td>
                 </tr>`;
