@@ -53,14 +53,14 @@ $(document).ready(function () {
     $(document).on('click', '.create-product-button', function () {
         // Muestra el formulario html al hacer clic en el botón 'crear producto'.
         var create_product_html = `
-        <!-- 'read products' button to show list of products -->
+        <!-- Botón para mostrar la lista de productos -->
         <div class='text-right'>
             <button class='btn btn-primary read-products-button'>
                 <i class='fa fa-eye'></i> Mostrar productos
             </button>
         </div>
 
-        <!-- Formulario html de 'crear producto' -->
+        <!-- Formulario html para 'crear producto' -->
         <form id='create-product-form' action='#' method='post' border='0' enctype='multipart/form-data'>
             <table class='table table-hover table-responsive table-bordered'>
         

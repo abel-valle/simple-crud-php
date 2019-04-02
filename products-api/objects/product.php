@@ -81,6 +81,10 @@ class Product {
         }
         return false;
     }
+
+    public function readOne() {
+        
+    }
 }
 ?>
 

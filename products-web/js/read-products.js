@@ -3,9 +3,10 @@ $(document).ready(function () {
 });
 
 function showProducts() {
-    // Muestra la lista de productos.
+    
     var apiURL = "http://[your-domain-here]/apps/products-api/";
     
+    // Muestra la lista de productos.
     $.getJSON(apiURL + "product/read.php", function (data) {
         var read_products_html = `
             <!-- Al hacer clic, cargará el formulario para crear un nuevo producto. -->
@@ -43,7 +44,7 @@ function showProducts() {
                     <td> <img src='` + apiURL + val.image + `' height='80px'> </td>
                     <td>
                         <!-- Botón para editar -->
-                        <button class='btn btn-info update-product-button' data-id='` + val.id_product + `'>
+                        <button class='btn btn-secondary update-product-button' data-id='` + val.id_product + `' disabled>
                             <i class="fa fa-edit"></i> Editar
                         </button>
                         
